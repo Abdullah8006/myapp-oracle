@@ -12,7 +12,7 @@ import com.appster.abdullah.repository.UserRepository;
 
 @Controller
 public class WelcomeController {
-
+	
 	@Autowired
 	private UserRepository userRepository;
 
