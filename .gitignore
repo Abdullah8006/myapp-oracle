@@ -2,3 +2,4 @@ target/
 .classpath
 .settings/
 .project
+./hs_err_pid10800.log
