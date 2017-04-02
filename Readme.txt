@@ -12,3 +12,5 @@
 - Flyway
 
 #Updates new
+- Added spring integration support
+- Added a simple channels and tested the connection between them
