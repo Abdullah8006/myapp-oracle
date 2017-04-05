@@ -1,4 +1,4 @@
-package com.appster.abdullah.springIntegration;
+/*package com.appster.abdullah.springIntegration;
 
 import java.util.List;
 
@@ -13,6 +13,8 @@ public class NameSplitter {
 
 	@Splitter(inputChannel = "publishSubscribeChannel", outputChannel = "firstNameChannel")
 	public List<User> splitNames(Message<List<User>> msg) {
+		System.out.println("Calling splitter..");
 		return msg.getPayload();
 	}
 }
+*/

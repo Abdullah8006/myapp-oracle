@@ -23,7 +23,6 @@ public class SpringIntegrationConfig {
 
 	@Bean
 	public FixedSubscriberChannel messageChannel() {
-		System.out.println("Message channel called..");
 		FixedSubscriberChannel subscribableChannel = new FixedSubscriberChannel(new MessageHandler() {
 			@Override
 			public void handleMessage(Message<?> message) throws MessagingException {
