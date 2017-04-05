@@ -12,5 +12,6 @@
 - Flyway
 
 #Updates new
-- Added spring integration support
-- Added a simple channels and tested the connection between them
+- Added spring integration support.
+- Added a simple channels and tested the connection between them.
+- Added a simple HttpOutBound channel adapter for hitting a webservice.
