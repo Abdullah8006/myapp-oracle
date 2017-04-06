@@ -13,7 +13,7 @@ public class WebserviceOutboundAdaptor {
 	@Bean
 	public IntegrationFlow httpOut() {
 	    return IntegrationFlows.from("publishSubscribeChannel")
-	            .handle(Http.outboundGateway("http://localhost:8090/myapp/userstats/1")
+	            .handle(Http.outboundGateway("http://localhost:8090/myapp/api/v1/userstats/1")
 	                    .charset("UTF-8")
 	                    .httpMethod(HttpMethod.GET)).channel("baseChannel")
 	            .get();
