@@ -3,3 +3,4 @@ target/
 .settings/
 .project
 ./hs_err_pi*
+log/
