@@ -6,12 +6,16 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.integration.support.MessageBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.appster.abdullah.entity.Institute;
+import com.appster.abdullah.entity.InstituteClass;
 import com.appster.abdullah.entity.User;
+import com.appster.abdullah.repository.InstituteClassRepository;
+import com.appster.abdullah.repository.InstituteRepository;
+import com.appster.abdullah.repository.UserRepository;
+import com.appster.abdullah.service.UserService;
 import com.appster.abdullah.springIntegration.TestGateway;
 
 @Controller
@@ -19,22 +23,55 @@ public class WelcomeController {
 
 	private static final Logger LOG = Logger.getLogger(WelcomeController.class);
 	private TestGateway gateway;
-	private Environment env;
+	private UserService userService;
+	@Autowired
+	private InstituteClassRepository instituteClassRepository;
+	@Autowired
+	private UserRepository userRepository;
+	@Autowired
+	private InstituteRepository instituteRepository;
 
 	@Autowired
-	public WelcomeController(TestGateway gateway, Environment evn) {
+	public WelcomeController(TestGateway gateway, UserService userService) {
 		this.gateway = gateway;
-		this.env = evn;
+		this.userService = userService;
 	}
 
 	@RequestMapping("/")
 	public String welcome(Map<String, Object> model) {
-		LOG.info("Requesting the home page..");
-		User user = new User();
-		user.setName("Inamullah wasi");
-		System.out.println("The active profile is : " + env.getProperty("spring.active.profile"));
-		gateway.updateUserStatistics(MessageBuilder.withPayload(getUsers()).build());
+		// gateway.updateUserStatistics(MessageBuilder.withPayload(getUsers()).build());
+
 		model.put("message", "User name : " + " null as of now!");
+		return "welcome";
+	}
+
+	@RequestMapping("/addInstituteClasses")
+	public String savaUser(Map<String, Object> model) {
+
+		Institute institute = instituteRepository.findOne((long) 1);
+
+		List<InstituteClass> classes = new ArrayList<>();
+
+		InstituteClass classOne = new InstituteClass();
+		classOne.setName("Class One");
+		classOne.setInstitute(institute);
+		classes.add(classOne);
+
+		InstituteClass classTwo = new InstituteClass();
+		classTwo.setName("Class Two");
+		classTwo.setInstitute(institute);
+		classes.add(classTwo);
+
+		instituteClassRepository.save(classes);
+
+		LOG.info("Persisting Customers and there associated addresses");
+		return "welcome";
+	}
+
+	@RequestMapping("/testCriteria")
+	public String testCriteria() {
+		LOG.info("Persisting Customers and there associated addresses");
+		userService.testCriteriaQuery();
 		return "welcome";
 	}
 
@@ -42,15 +79,23 @@ public class WelcomeController {
 		List<User> users = new ArrayList<>();
 
 		User userOne = new User();
-		userOne.setName("Aamir Arafat");
+		userOne.setUsername("Aamir Arafat");
 
 		User userTwo = new User();
-		userTwo.setName("Arsalan Aslam");
+		userTwo.setUsername("Arsalan Aslam");
 
 		users.add(userOne);
 		users.add(userTwo);
 
 		return users;
+	}
+
+	@RequestMapping("/user")
+	public String addUser() {
+		List<User> users = getUsers();
+		for (User user : users)
+			userService.addUser(user);
+		return "welcome";
 	}
 
 }

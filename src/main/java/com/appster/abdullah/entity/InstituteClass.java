@@ -6,12 +6,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="institue_class")
-public class InstitueClass extends BaseEntity{
+@Table(name = "institue_class")
+public class InstituteClass extends BaseEntity {
+
+	private static final long serialVersionUID = 1L;
 
 	@Column(name = "name")
 	private String name;
-	
+
 	@ManyToOne
 	private Institute institute;
 
@@ -30,5 +32,5 @@ public class InstitueClass extends BaseEntity{
 	public void setInstitute(Institute institute) {
 		this.institute = institute;
 	}
-	
+
 }

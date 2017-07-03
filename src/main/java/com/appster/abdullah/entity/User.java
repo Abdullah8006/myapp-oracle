@@ -2,25 +2,58 @@ package com.appster.abdullah.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "user")
-public class User extends BaseEntity {
+public class User {
 
-	private static final long serialVersionUID = 1L;
-	
-	@Column(name = "name")
-	@NotBlank(message="error.user.name")
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-	public String getName() {
-		return name;
-	}
+    @Column(name = "username")
+    private String username;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @Column(name = "password")
+    private String password;
+    
+    @Column(name = "age", nullable = false)
+    private int age;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
 }

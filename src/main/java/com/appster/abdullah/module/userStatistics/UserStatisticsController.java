@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.appster.abdullah.entity.Customer;
 import com.appster.abdullah.entity.User;
-import com.appster.abdullah.module.userStatistics.service.CustomerService;
 import com.appster.abdullah.module.userStatistics.service.UserstatService;
 import com.appster.abdullah.util.ResponseEnvelope;
 
@@ -21,12 +19,10 @@ import com.appster.abdullah.util.ResponseEnvelope;
 public class UserStatisticsController {
 
 	private UserstatService userstatService;
-	private CustomerService customerService;
 
 	@Autowired
-	public UserStatisticsController(UserstatService userstatService, CustomerService customerService) {
+	public UserStatisticsController(UserstatService userstatService) {
 		this.userstatService = userstatService;
-		this.customerService = customerService;
 	}
 
 	@RequestMapping("/{id}")
@@ -43,10 +39,4 @@ public class UserStatisticsController {
 		return new ResponseEntity<ResponseEnvelope>(new ResponseEnvelope(newUser, "Success"), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/customer", method = RequestMethod.POST)
-	@ResponseBody
-	public ResponseEntity<ResponseEnvelope> addCustomerABc(@RequestBody Customer customer) {
-		Customer savedCustomer = customerService.addCustomer(customer);
-		return new ResponseEntity<ResponseEnvelope>(new ResponseEnvelope(savedCustomer, "Success"), HttpStatus.OK);
-	}
 }
