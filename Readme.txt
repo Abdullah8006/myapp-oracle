@@ -8,7 +8,7 @@
 - Spring boot
 - Spring boot embedded Tomcat
 - Thymleaf
-- Spring Data Jpa (Hibernate as the implementation and mysql as the database)
+- Spring Data Jpa (Hibernate as the implementation and ORACLE as the database)
 - Flyway
 
 #Updates new
