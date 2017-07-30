@@ -20,6 +20,7 @@ import com.appster.abdullah.repository.CourseRepository;
 import com.appster.abdullah.repository.InstituteClassRepository;
 import com.appster.abdullah.repository.InstituteRepository;
 import com.appster.abdullah.repository.StudentRepository;
+import com.appster.abdullah.repository.UserRepository;
 import com.appster.abdullah.service.UserService;
 import com.appster.abdullah.springIntegration.TestGateway;
 
@@ -36,7 +37,7 @@ public class WelcomeController {
     @Autowired
     private InstituteRepository instituteRepository;
     @Autowired
-    private CourseRepository courseRepository;
+    private UserRepository userRepository;
 
     @Autowired
     public WelcomeController(TestGateway gateway, UserService userService) {
@@ -107,10 +108,11 @@ public class WelcomeController {
     @RequestMapping("/student-courses")
     @Transactional
     public String addStudentAndCourses() {
-        Student studentOne = studentRepository.findByStudentAndCoursesEager(2L);
-        System.out.println(studentOne.getCourses());
-
-        HashMap<String, String> map;
+        User user = new User();
+        user.setAge(28);
+        user.setUsername("Abdullah");
+        user.setPassword("7^&&@^*&@#&*&@#&@#!@#$%^&U");
+        userRepository.save(user);
         return "welcome";
     }
 }
