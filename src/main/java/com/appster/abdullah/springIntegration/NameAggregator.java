@@ -15,7 +15,7 @@ public class NameAggregator {
 	public String getAllFirstNames(List<Message<User>> msg) {
 		System.out.println("there...");
 		for (Message<User> m : msg) {
-			System.out.println(m.getPayload().getUsername());
+			System.out.println("name" + m.toString());
 		}
 		return "nullChannel";
 	}

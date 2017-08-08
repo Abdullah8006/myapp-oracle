@@ -1,22 +1,21 @@
 package com.appster.abdullah.config;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.appster.abdullah.entity.Institute;
 import com.appster.abdullah.entity.InstituteClass;
-import com.appster.abdullah.entity.Student;
 import com.appster.abdullah.entity.User;
-import com.appster.abdullah.repository.CourseRepository;
 import com.appster.abdullah.repository.InstituteClassRepository;
 import com.appster.abdullah.repository.InstituteRepository;
 import com.appster.abdullah.repository.StudentRepository;
@@ -86,10 +85,8 @@ public class WelcomeController {
         List<User> users = new ArrayList<>();
 
         User userOne = new User();
-        userOne.setUsername("Aamir Arafat");
 
         User userTwo = new User();
-        userTwo.setUsername("Arsalan Aslam");
 
         users.add(userOne);
         users.add(userTwo);
@@ -106,13 +103,13 @@ public class WelcomeController {
     }
 
     @RequestMapping("/student-courses")
-    @Transactional
     public String addStudentAndCourses() {
-        User user = new User();
-        user.setAge(28);
-        user.setUsername("Abdullah");
-        user.setPassword("7^&&@^*&@#&*&@#&@#!@#$%^&U");
-        userRepository.save(user);
+        /*
+         * User user = null; List<User> users = new ArrayList<>(); for (int i =
+         * 0; i < 20; i++) { user = new User(); users.add(user); }
+         * userRepository.save(users);
+         */
         return "welcome";
     }
+
 }

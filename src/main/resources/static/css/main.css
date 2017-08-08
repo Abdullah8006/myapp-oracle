@@ -1,7 +1,13 @@
-h1{
-	color:#0000FF;
+h1 {
+	color: #0000FF;
 }
 
-h2{
-	color:#FF0000;
+h2 {
+	color: #FF0000;
+}
+
+a {
+	text-decoration: underline;
+	margin: 20px;
+	color: black;
 }

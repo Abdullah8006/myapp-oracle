@@ -1,7 +1,6 @@
-package com.appster.abdullah.entity;
+package com.appster.abdullah.entity.common;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Embedded;
 import javax.persistence.GeneratedValue;
@@ -10,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-
-import com.appster.abdullah.entity.embeddable.EmbeddableDate;
 
 /**
  * Super class contains all the properties common to all the child entities
@@ -29,7 +26,7 @@ public class BaseEntity implements Serializable {
 	private long id;
 
 	@Embedded
-	private EmbeddableDate date;
+	private Date date;
 
 	public long getId() {
 		return id;
@@ -39,24 +36,24 @@ public class BaseEntity implements Serializable {
 		this.id = id;
 	}
 
-	public EmbeddableDate getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(EmbeddableDate date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
 	@PrePersist
 	public void createdAt() {
-		Date newDate = new Date();
-		this.date = new EmbeddableDate(newDate, newDate);
+	    java.util.Date newDate = new java.util.Date();
+		this.date = new Date(newDate, newDate);
 	}
 
 	@PreUpdate
 	public void updatedAt() {
-		Date newDate = new Date();
-		this.date = new EmbeddableDate(this.getDate().getDateCreated(), newDate);
+	    java.util.Date newDate = new java.util.Date();
+		this.date = new Date(this.getDate().getDateCreated(), newDate);
 	}
 
 }

@@ -37,10 +37,6 @@ public class UserServiceImpl implements UserService {
         cq.where(criteriaBuilder.like(rootUser.get("name"), "%Za%"));
 
         List<User> resultList = em.createQuery(cq).getResultList();
-
-        for (User user : resultList) {
-            System.out.println(user.getUsername());
-        }
     }
 
     @Override
