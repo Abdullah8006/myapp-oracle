@@ -1,4 +1,4 @@
-h1 {
+/* h1 {
 	color: #0000FF;
 }
 
@@ -11,3 +11,9 @@ a {
 	margin: 20px;
 	color: black;
 }
+
+.container {
+	background-color: #957bbe;
+}
+
+.col { border: 1px solid transparent; } */

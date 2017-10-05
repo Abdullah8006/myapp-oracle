@@ -53,18 +53,4 @@ public class FileUploadService {
         return id + Calendar.getInstance().getTimeInMillis() + originalFilename;
     }
 
-    /*
-     * public String uploadFile(User user, MultipartFile file) throws
-     * IOException { byte[] bytes = file.getBytes(); long imageHolder = ((int)
-     * (user.getId() / 100) + 1); File folder = null; String fileName =
-     * generateFileName(user.getId(), file.getOriginalFilename()); Path path =
-     * Paths.get(UPLOADED_FOLDER, String.valueOf(imageHolder)); Path filePath =
-     * Paths.get(UPLOADED_FOLDER, String.valueOf(imageHolder), fileName); if
-     * (!Files.exists(path)) { folder = new File(path.toString()); if
-     * (folder.mkdir()) { filePath = Files.write(filePath, bytes); } } else {
-     * filePath = Files.write(filePath, bytes); }
-     * 
-     * return filePath.toFile().getAbsolutePath(); }
-     */
-
 }
