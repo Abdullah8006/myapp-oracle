@@ -10,10 +10,11 @@
 - Thymleaf
 - Spring Data Jpa (Hibernate as the implementation and ORACLE as the database)
 - Flyway
+- Spring security OAuth2
 
 #Updates new
 - Added spring integration support.
 - Added a simple channels and tested the connection between them.
-- Added a simple HttpOutBound channel adapter for hitting a webservice.
+- Added a simple HttpOutBound channel adapter for hitting a web service.
 - Added a simple design with couple of pages.
 - Added spring-security-oauth2 with in-memory token manager and with custom user roles(data base stored/not in-memory).
