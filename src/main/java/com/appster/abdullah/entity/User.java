@@ -1,15 +1,21 @@
 package com.appster.abdullah.entity;
 
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -31,6 +37,9 @@ public class User extends BaseEntity {
 
     @Column(name = "username")
     private String username;
+    
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "password")
     private String password;
@@ -50,9 +59,13 @@ public class User extends BaseEntity {
 
     @OneToMany(mappedBy = "user")
     private List<Assignment> assignments;
-    
+
     @OneToMany(mappedBy = "user")
     private List<Document> documents;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
     public long getId() {
         return id;
@@ -128,6 +141,22 @@ public class User extends BaseEntity {
 
     public static long getSerialversionuid() {
         return serialVersionUID;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
     
 }

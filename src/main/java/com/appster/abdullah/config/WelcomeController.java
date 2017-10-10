@@ -14,7 +14,7 @@ public class WelcomeController {
     @RequestMapping(value = { "", "/", "index" })
     public String getWelcomePage(Map<String, Object> model) {
         LOG.info("Home page accessed.");
-        model.put("message", "Salaam u alaikum!");
+        model.put("message", "Airspace");
         return "index";
     }
 

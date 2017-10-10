@@ -3,45 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>MyApp</title>
+<title th:text="${message}">MyApp</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 <!-- CSS -->
-<link rel="stylesheet" th:href="@{css/owl.carousel.css}">
-<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
-<link rel="stylesheet" th:href="@{css/font-awesome.min.css}">
-<link rel="stylesheet" th:href="@{css/style.css}">
-<link rel="stylesheet" th:href="@{css/ionicons.min.css}">
-<link rel="stylesheet" th:href="@{css/animate.css}">
-<link rel="stylesheet" th:href="@{css/responsive.css}">
+<link th:replace="fragments/css :: css" />
 
 <!-- Js -->
-<script th:src="@{js/vendor/modernizr-2.6.2.min.js}"></script>
-<script
-	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>
-	window.jQuery
-			|| document
-					.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
-</script>
-<script th:src="@{js/bootstrap.min.js}"></script>
-<script th:src="@{js/owl.carousel.min.js}"></script>
-<script th:src="@{js/plugins.js}"></script>
-<script th:src="@{js/min/waypoints.min.js}"></script>
-<script th:src="@{js/jquery.counterup.js}"></script>
-
-<!-- Google Map -->
-<script th:src="@{https://maps.googleapis.com/maps/api/js}"></script>
-<script th:src="@{js/google-map-init.js}"></script>
-
-
-<script th:src="@{js/main.js}"></script>
-
-<link rel="stylesheet" th:href="@{/css/main.css}"
-	href="../../css/main.css" />
+<script th:replace="fragments/js :: js"></script>
 
 </head>
 <body>
@@ -338,7 +308,8 @@
 	<script>
 		document.write('<script src="http://'
 				+ (location.host || 'localhost').split(':')[0]
-				+ ':35729/livereload.js?snipver=1"></' + 'script>')
+				+ ':35729/livereload.js?snipver=1"></' + 'script>');
+		//$('#myModal').modal('show');
 	</script>
 
 </body>
