@@ -1,4 +1,4 @@
-package com.appster.abdullah.util;
+package com.appster.abdullah.util.deleteanytime;
 
 public class TestClass {
 

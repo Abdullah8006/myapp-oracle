@@ -11,5 +11,4 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("com.appster.abdullah.repository")
 public class DatabaseConfig {
 
-
 }
