@@ -7,6 +7,6 @@ INTO "OAUTH_CLIENT_DETAILS"
     VALUES
     (
         'my_client_id', 'secret', 'foo,read,write',
-        'password,authorization_code,refresh_token', '36000', '36000'
+        'password,authorization_code,refresh_token', '120', '600'
         , 'true'
     );

@@ -24,9 +24,18 @@ public class RegistrationController {
     public ResponseEntity<ResponseEnvelope> registerUser(@RequestBody @Validated User userData) {
         LOG.info("Registering user." + userData);
         if (userData != null && userData.getUsername().equals("Abdullah") && userData.getPassword().equals("123abd")) {
-            return new ResponseEntity<ResponseEnvelope>(new ResponseEnvelope(userData, "Success"), HttpStatus.OK);
+            return new ResponseEntity<ResponseEnvelope>(new ResponseEnvelope(true, "Success"), HttpStatus.OK);
         } else {
-            return new ResponseEntity<ResponseEnvelope>(new ResponseEnvelope(userData, "Failure"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<ResponseEnvelope>(new ResponseEnvelope(false, "Failure"),
+                    HttpStatus.UNAUTHORIZED);
         }
     }
+
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<ResponseEnvelope> getUser(@RequestBody @Validated User userData) {
+        LOG.info("Details of user." + userData);
+        return new ResponseEntity<ResponseEnvelope>(new ResponseEnvelope(userData, "Success"), HttpStatus.OK);
+    }
+    
 }

@@ -43,13 +43,17 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .authorizeRequests()
         .antMatchers("/oauth/token").permitAll();
     }
+    
+    /*@Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/api/v1/register");
+    }*/
  
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
- 
  
     @Bean
     public TokenStore tokenStore() {
