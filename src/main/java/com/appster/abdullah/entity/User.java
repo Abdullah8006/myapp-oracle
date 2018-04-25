@@ -27,7 +27,7 @@ import com.appster.abdullah.util.AppConstant;
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity {
-
+    
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -37,7 +37,7 @@ public class User extends BaseEntity {
 
     @Column(name = "username")
     private String username;
-    
+
     @Column(name = "email")
     private String email;
 
@@ -158,5 +158,5 @@ public class User extends BaseEntity {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
 }

@@ -10,6 +10,8 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Super class contains all the properties common to all the child entities
  * 
@@ -25,6 +27,7 @@ public class BaseEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@JsonIgnore
 	@Embedded
 	private Date date;
 
